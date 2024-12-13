@@ -1,0 +1,11 @@
+{
+  "name": "example-package",
+  "version": "1.0.0",
+  "dependencies": {
+    "package1": "^1.0.0",
+    "package2": "^2.0.0"
+  },
+  "devDependencies": {
+    "package3": "^3.0.0"
+  }
+}

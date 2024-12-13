@@ -1,0 +1,8 @@
+[package]
+path = "C:/Users/User/PycharmProjects/pythonProject"
+
+[graphviz]
+path = "C:/Program Files/Graphviz"
+
+[output]
+path = "C:/Users/User/Desktop"
