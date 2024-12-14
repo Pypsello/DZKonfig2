@@ -9,7 +9,6 @@ from npm_dependency_graph import NpmDependencyGraph
 class TestNpmDependencyGraph(unittest.TestCase):
 
     def setUp(self):
-        """Настройка перед каждым тестом"""
         self.test_config_path = 'test_config.toml'
         self.test_package_json_path = 'test_package.json'
 
@@ -41,12 +40,10 @@ class TestNpmDependencyGraph(unittest.TestCase):
             os.remove(self.test_package_json_path)
 
     def test_load_config(self):
-        """Простая проверка загрузки конфигурации"""
         graph = NpmDependencyGraph(self.test_config_path)
         self.assertTrue(isinstance(graph.config, dict))
 
     def test_get_package_json(self):
-        """Простая проверка загрузки package.json"""
         graph = NpmDependencyGraph(self.test_config_path)
         try:
             package_json = graph.get_package_json()
@@ -55,7 +52,6 @@ class TestNpmDependencyGraph(unittest.TestCase):
             self.fail("FileNotFoundError при загрузке package.json")
 
     def test_collect_dependencies(self):
-        """Простая проверка сбора зависимостей"""
         graph = NpmDependencyGraph(self.test_config_path)
         try:
             result = graph.collect_dependencies()
@@ -65,7 +61,6 @@ class TestNpmDependencyGraph(unittest.TestCase):
             self.fail("FileNotFoundError при сборе зависимостей")
 
     def test_build_graph(self):
-        """Простая проверка построения графа"""
         graph = NpmDependencyGraph(self.test_config_path)
         graph.dependencies = {'package1': '1.0.0'}
         try:
@@ -74,7 +69,6 @@ class TestNpmDependencyGraph(unittest.TestCase):
             self.fail(f"build_graph вызвала исключение: {e}")
 
     def test_generate_dependency_graph(self):
-        """Простая проверка генерации графа"""
         graph = NpmDependencyGraph(self.test_config_path)
         try:
             graph.generate_dependency_graph()
@@ -82,7 +76,6 @@ class TestNpmDependencyGraph(unittest.TestCase):
             self.fail(f"generate_dependency_graph вызвала исключение: {e}")
 
     def test_get_package_json_file_not_found(self):
-        """Проверка исключения при отсутствии package.json"""
         graph = NpmDependencyGraph('config.toml')
         with self.assertRaises(FileNotFoundError):
             graph.get_package_json()
