@@ -4,6 +4,7 @@ import toml
 from graphviz import Digraph
 import matplotlib.pyplot as plt
 
+
 class NpmDependencyGraph:
     def __init__(self, config_path):
         self.config = self.load_config(config_path)
